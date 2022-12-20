@@ -114,14 +114,14 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
             val lux = event.values[0]
             // Update the UI with the lux value
             when{
-                lux in 1.0..1000.0 -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                lux > 1000.0 -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                lux in 1.0..300.0 -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                lux > 300.0 -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
             val tv_luz = findViewById<TextView>(R.id.textView_luz)
             tv_luz.setText(String.format("%.2f", lux))
         } else if (actualFigure == 2 && event.sensor.stringType == "android.sensor.proximity") {
             val prox = event.values[0]
-            val tv_prox2 = findViewById<TextView>(R.id.textView_prox)
+            val tv_prox2 = findViewById<TextView>(R.id.textView_prox2)
             when{
                 prox in 0.0..2.0 -> tv_prox2.setText("Cerca")
                 prox in 2.0..6.0 -> tv_prox2.setText("Medio")
